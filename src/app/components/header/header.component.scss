@@ -1,0 +1,31 @@
+@import '~shared/styles/global';
+@import url('https://fonts.googleapis.com/css?family=Oxygen&display=swap');
+
+.header {
+  padding: 20px 40px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  justify-items: center;
+  height: $header-height;
+  border-bottom: 1px solid lighten($color-secondary, 50);
+
+  &__logo {
+    font-family: 'Oxygen', sans-serif;
+    font-size: 26px;
+    background: linear-gradient(to right, $color-primary, $color-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    cursor: pointer;
+  }
+
+  button {
+    margin-left: 15px;
+  }
+
+  .--hidden {
+    display: none;
+  }
+}

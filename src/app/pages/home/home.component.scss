@@ -1,0 +1,107 @@
+@import '~shared/styles/global';
+
+.head {
+  min-height: calc(100vh - #{$header-height});
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @include min-lg {
+      background-image: url("~src/assets/intro-baby.png");
+      background-repeat: no-repeat;
+      background-position: center right;
+      background-size: contain;
+  }
+
+  .intro {
+    text-align: center;
+    padding: 0 30px;
+
+    @include min-sm {
+        max-width: 600px;
+        margin: auto;
+    }
+
+    h1 {
+      color: $color-secondary;
+      font-size: 40px;
+    }
+
+    &__disclaimer {
+
+      &--call {
+        display: block;
+        font-size: 18px;
+        line-height: 20px;
+      }
+
+      &--highlight {
+        background: linear-gradient(to right, $color-primary, $color-accent);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+
+    &__contact {
+      margin-top: 50px;
+      margin-bottom: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      a {
+        display: block;
+        margin: 5px;
+        font-size: 12px;
+        color: $color-secondary;
+        text-decoration: none;
+        transition: color 200ms;
+
+        &:hover {
+          color: $color-primary;
+        }
+
+      }
+    }
+
+    &__social {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      a {
+        display: block;
+        margin: 5px;
+        font-size: 24px;
+        color: $color-secondary;
+
+        &:hover .fa:before {
+          transition: color 250ms ease-out;
+          background: linear-gradient($color-primary, $color-accent);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          color: transparent;
+        }
+      }
+    }
+  }
+}
+
+.products {
+  min-height: 70vh;
+  position: relative;
+  width: 100%;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h2 {
+    @include title
+  }
+
+}
+
+

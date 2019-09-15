@@ -1,0 +1,44 @@
+<app-loader [show]="isWaiting">
+  <form [formGroup]="form" class="form" (ngSubmit)="submit()">
+    <div class="login">
+
+      <h2>
+        Access your account
+      </h2>
+
+      <mat-dialog-content>
+
+        <mat-form-field appearance="outline">
+          <mat-label>E-mail</mat-label>
+          <input matInput formControlName="email" required type="email">
+          <mat-error ngxErrors="email" ngxError="required" *ngIf="!form.controls.email.hasError('pattern')">
+            Please, enter with your e-mail
+          </mat-error>
+          <mat-error ngxErrors="email" ngxError="pattern" *ngIf="!form.controls.email.hasError('required')">
+            please, verify your email address
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input matInput formControlName="password" required type="password">
+          <mat-error ngxErrors="password" ngxError="required" *ngIf="!form.controls.password.hasError('minlength')">
+            Please, enter with your password
+          </mat-error>
+        </mat-form-field>
+      </mat-dialog-content>
+
+      <mat-dialog-actions>
+
+        <button mat-flat-button type="reset" (click)="dialogRef.close()">
+          Cancel
+        </button>
+
+        <button mat-raised-button color="primary" type="submit">
+          Login
+        </button>
+
+      </mat-dialog-actions>
+    </div>
+  </form>
+</app-loader>

@@ -1,0 +1,63 @@
+@import '~shared/styles/variabeles';
+@import '~shared/styles/media-queries';
+
+.store{
+  width: 100%;
+  max-width: $screen-md-max;
+  margin: 50px auto 100px auto;
+  display: flex;
+  padding: 30px;
+  align-items: flex-start;
+  justify-content: stretch;
+  height: calc(100vh - #{$header-height} - 150px);
+  flex-direction: column;
+
+  @include min-lg {
+    flex-direction: row;
+  }
+
+  &__user {
+    display: block;
+    text-align: center;
+
+    @include max-lg {
+      width: 100%;
+      border-bottom: 1px solid lighten($color-secondary, 50);
+      margin-bottom: 30px;
+      padding-bottom: 30px;
+    }
+
+    @include min-lg {
+      width: 20%;
+      min-width: 20%;
+      max-width: 20%;
+      height: 100%;
+      border-right: 1px solid lighten($color-secondary, 50);
+    }
+
+
+    &__name {
+      font-weight: 400;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    &__createdAt {
+      font-size: 12px;
+      font-weight: 200;
+    }
+
+  }
+
+  &__banner {
+    width: 100%;
+    text-align: center;
+    color: lighten($color-secondary, 30);
+
+    h2 {
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+  }
+
+}

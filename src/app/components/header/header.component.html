@@ -1,0 +1,24 @@
+<header class="header">
+  <div class="header__logo" routerLink="/">
+    Look after
+  </div>
+
+  <div class="header__actions" *ngIf="!user">
+    <button mat-button (click)="login()">
+      Sign in
+    </button>
+    <button mat-raised-button color="primary" (click)="register()">
+      Sign up
+    </button>
+  </div>
+
+  <div class="header__actions" *ngIf="user">
+    <button mat-button routerLink="/" (click)="singOut()">
+      Sign out
+    </button>
+
+    <button mat-raised-button color="primary" routerLink="/store" routerLinkActive="--hidden">
+      Store
+    </button>
+  </div>
+</header>

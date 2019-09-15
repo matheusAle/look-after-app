@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  server: 'https://ale-fake-server.herokuapp.com/feracode/look-after',
+  userStorageKey: 'USER_STORAGE'
 };
 
 /*

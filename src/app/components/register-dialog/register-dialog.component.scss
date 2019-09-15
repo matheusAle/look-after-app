@@ -1,0 +1,23 @@
+@import "~shared/styles/variabeles";
+@import "~shared/styles/title.mixin";
+
+.register {
+
+  mat-dialog-content {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    mat-form-field {
+      width: 100%;
+    }
+  }
+
+  mat-dialog-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

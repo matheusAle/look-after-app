@@ -1,0 +1,35 @@
+<div class="carousel" *ngIf="pages" (mouseenter)="pause = true" (mouseleave)="pause = false">
+  <div class="carousel__gallery">
+    <div class="carousel__gallery__page">
+      <div class="picture" *ngFor="let item of currentPage" [@picture]>
+        <img class="picture__image" [src]="item.url" alt="">
+        <div class="picture__description">
+          <p class="picture__description__name">{{ item.name }}</p>
+          <div class="picture__description__size">
+            <span *ngFor="let s of item.size">
+              {{ s }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="carousel__control">
+
+    <div class="control control--right" (click)="setPage(currentPageIndex + 1)">
+      <i class="fa fa-angle-right" aria-hidden="true"></i>
+    </div>
+
+    <div class="control control--left" (click)="setPage(currentPageIndex - 1)">
+      <i class="fa fa-angle-left" aria-hidden="true"></i>
+    </div>
+
+    <div class="control control--page">
+      <span class="ellipse" *ngFor="let page of pages; let index = index"
+            [ngClass]="{ '--active': currentPageIndex === index }"
+            (click)="setPage(index)"></span>
+    </div>
+  </div>
+
+</div>

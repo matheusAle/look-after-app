@@ -1,0 +1,21 @@
+<main class="store">
+
+  <aside class="store__user">
+    <p class="store__user__name" *ngIf="user">
+      {{ user.name }}
+    </p>
+    <p class="store__user__createdAt" *ngIf="user">
+      {{ user.createdAt | date:'dd/MM/yyyy' }}
+    </p>
+  </aside>
+
+  <section class="store__banner">
+    <h2>
+      Sorry, our store is coming soon
+    </h2>
+    <p>
+      No worries we'll warn you by email when it's ready.
+    </p>
+  </section>
+
+</main>

@@ -1,0 +1,6 @@
+
+export enum HTTP_ERROR {
+  DUPLICATED,
+  NOT_FOUNDED,
+  SERVER_ERROR,
+}

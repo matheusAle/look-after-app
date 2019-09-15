@@ -1,0 +1,192 @@
+@import "~shared/styles/global";
+
+
+.carousel {
+  padding: 60px;
+  position: relative;
+
+  &__control {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+
+    .control {
+      $margin: 30px;
+      font-size: 30px;
+      color: rgba($color-secondary, .4);
+      position: absolute;
+      height: 100%;
+      width: 60px;
+      z-index: 2;
+      pointer-events: all;
+
+      &--right, &--left {
+        pointer-events: all;
+
+        .fa {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          transition: transform 250ms ease-out, transform 200ms ease-in;
+        }
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      &--right {
+        right: 0;
+
+        &:hover .fa {
+          transform: translate(-50%, -50%) translateX(10px);
+          color: $color-secondary;
+        }
+      }
+
+      &--left {
+        left: 0;
+
+        &:hover .fa {
+          transform: translate(-50%, -50%) translateX(-10px);
+          color: $color-secondary;
+        }
+      }
+
+      &--page {
+        width: 100%;
+        bottom: 0;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .ellipse {
+          display: block;
+          height: 15px;
+          width: 15px;
+          background-color: rgba($color-primary, .5);
+          border-radius: 100%;
+          margin: 0 5px;
+          transition: background-color 250ms ease-out, box-shadow 300ms cubic-bezier(.28,1.57,.29,1.58);
+          position: relative;
+          pointer-events: all;
+
+          &:before {
+            content: ' ';
+            width: 18px;
+            height: 18px;
+            border-radius: 100%;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            //transform: translate(-52%, -52%);
+            transition: border 250ms ease-out;
+          }
+
+
+          &:not(.--active):not(:hover) {
+          }
+
+          &.--active {
+            background-color: $color-primary;
+            cursor: default;
+            box-shadow: 0 0 0 2px white, 0 0 0 4px $color-primary;
+          }
+
+          &:hover {
+            background-color: $color-primary;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+
+  &__gallery {
+    height: 70vh;
+    width: 90vw;
+    overflow: hidden;
+
+    &__page {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: stretch;
+      align-items: stretch;
+      overflow: hidden;
+
+      .picture {
+        position: relative;
+        width: calc(50% - 5px);
+        height: 50%;
+        overflow: hidden;
+        margin: 2.5px;
+
+        &__image {
+          object-fit: scale-down;
+          width: 100%;
+          height: 100%;
+          transition: transform 250ms ease-out;
+        }
+
+        &__description {
+          position: absolute;
+          bottom: 0;
+          background-color: rgba($color-secondary, .1);
+          color: $color-secondary;
+          padding: 10px;
+          text-align: end;
+          width: 100%;
+          font-size: 10px;
+          display: flex;
+          flex-direction: column;
+          transition: font-size 200ms ease-in,
+                      background-color 250ms 100ms ease-out,
+                      color 250ms 100ms ease-out;
+
+
+          &__name {
+            margin-bottom: 5px;
+          }
+
+          &__size {
+            display: inline-block;
+
+            span {
+              display: inline-block;
+              font-size: 10px;
+              padding: .2ch 1.3ch;
+              background-color: $color-accent;
+              margin-left: 1ch;
+              color: black;
+              border-radius: 50px;
+            }
+          }
+        }
+
+        &:not(.ng-animating):hover {
+          .picture__image {
+            transform: scale(1.5);
+          }
+
+          .picture__description {
+            font-size: 14px;
+            background-color: $color-secondary;
+            color: white;
+          }
+        }
+      }
+
+
+    }
+  }
+
+}

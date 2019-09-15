@@ -1,1 +1,56 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "~reset-css/reset.css";
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+@import '~@angular/material/theming';
+@import '~shared/styles/variabeles';
+@include mat-core();
+
+
+@function palette-for($color) {
+  @return (
+    50: lighten($color, 60),
+    100: lighten($color, 50),
+    200: lighten($color, 40),
+    300: lighten($color, 30),
+    400: lighten($color, 20),
+    500: $color,
+    600: darken($color, 20),
+    700: darken($color, 30),
+    800: darken($color, 40),
+    900: darken($color, 50),
+    A100: lighten($color, 75),
+    A200: lighten($color, 50),
+    A400: lighten($color, 25),
+    A700: $color,
+    contrast: (
+      50: rgba(invert($color), .87),
+      100: rgba(invert($color), .87),
+      200: rgba(invert($color), .87),
+      300: rgba(invert($color), .87),
+      400: rgba(invert($color), .87),
+      500: white,
+      600: white,
+      700: white,
+      800: white,
+      900: white,
+      A100: rgba(invert($color), .87),
+      A200: rgba(invert($color), .87),
+      A400: rgba(invert($color), .87),
+      A700: white,
+    )
+  );
+}
+
+$my-app-primary: mat-palette(palette-for($color-primary));
+$my-app-accent: mat-palette(palette-for($color-accent));
+$my-app-theme: mat-light-theme($my-app-primary, $my-app-accent);
+
+@include angular-material-theme($my-app-theme);
+
+* {
+  box-sizing: border-box !important;
+  font-family: 'Open Sans', sans-serif;
+}

@@ -1,0 +1,66 @@
+<app-loader [show]="isWaiting">
+  <form [formGroup]="form" class="form" (ngSubmit)="submit()">
+    <div class="register">
+
+      <h2>
+        Create Your Account!
+      </h2>
+
+      <mat-dialog-content>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="name" required minlength="3">
+          <mat-error ngxErrors="name" ngxError="required" *ngIf="!form.controls.name.hasError('minlength')">
+            Please, enter with your name
+          </mat-error>
+          <mat-error ngxErrors="phone" ngxError="minlength" *ngIf="!form.controls.name.hasError('required')">
+            please, verify your name
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>E-mail</mat-label>
+          <input matInput formControlName="email" required type="email">
+          <mat-error ngxErrors="email" ngxError="required" *ngIf="!form.controls.email.hasError('pattern')">
+            Please, enter with your e-mail
+          </mat-error>
+          <mat-error ngxErrors="email" ngxError="pattern" *ngIf="!form.controls.email.hasError('required')">
+            please, verify your email address
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Phone</mat-label>
+          <input matInput formControlName="phone" required mask="0 0000 0000" minlength="9">
+          <mat-error ngxErrors="phone" ngxError="required" *ngIf="!form.controls.phone.hasError('minlength')">
+            Please, enter with your phone number
+          </mat-error>
+          <mat-error ngxErrors="phone" ngxError="minlength" *ngIf="!form.controls.phone.hasError('required')">
+            please, verify your phone number
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input matInput formControlName="password" required type="password">
+          <mat-error ngxErrors="password" ngxError="required">
+            Please, enter with your password
+          </mat-error>
+        </mat-form-field>
+      </mat-dialog-content>
+
+      <mat-dialog-actions>
+
+        <button mat-flat-button type="reset" (click)="dialogRef.close()">
+          Cancel
+        </button>
+
+        <button mat-raised-button color="primary" type="submit">
+          Create
+        </button>
+
+      </mat-dialog-actions>
+    </div>
+  </form>
+</app-loader>
