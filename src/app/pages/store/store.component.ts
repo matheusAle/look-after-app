@@ -18,6 +18,7 @@ export class StoreComponent implements OnInit {
   async ngOnInit() {
     const storageUser = localStorage.getItem(environment.userStorageKey);
     if (!storageUser) {
+      this.router.navigateByUrl('/');
       return;
     }
 
